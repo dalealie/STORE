@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Category, Product, Customer, Order, Review
 
+def home(request):
+    # Your logic for the home view
+    return render(request, 'home.html') 
+
 # Example view for rendering a page with all categories
 def all_categories(request):
     categories = Category.objects.all()

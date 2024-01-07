@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mini_store/', include('mini_store.urls')),  # Connect mini_store app's URLs
+    path('', include('mini_store.urls')),  # Connect mini_store app's URLs
     # Add other URL patterns for other apps or views in your project
 ]

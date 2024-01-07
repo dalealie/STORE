@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }} - My Store{% endblock %}
+{% block title %}{{ product.name }} - Product Details{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h2>{{ product.name }}</h2>
-            <p>Description: {{ product.description }}</p>
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
-        </div>
-        <div class="col-md-6">
-            <h3>Reviews</h3>
-            {% if reviews %}
-                {% for review in reviews %}
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Rating: {{ review.rating }}</h5>
-                        <p class="card-text">Comment: {{ review.comment }}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            {% else %}
-                <p>No reviews available.</p>
-            {% endif %}
-        </div>
+    <h1>{{ product.name }}</h1>
+    <div class="product-details">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <p>Description: {{ product.description }}</p>
+        <p>Category: {{ product.category.name }}</p>
+        <!-- Display more product details as needed -->
     </div>
-</div>
+
+    <h2>Customer Reviews</h2>
+    <div class="customer-reviews">
+        {% if reviews %}
+            <ul>
+                {% for review in reviews %}
+                    <li>
+                        <p>Rating: {{ review.rating }}</p>
+                        <p>Comment: {{ review.comment }}</p>
+                        <!-- Display more review details as needed -->
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No reviews available for this product.</p>
+        {% endif %}
+    </div>
 {% endblock %}
