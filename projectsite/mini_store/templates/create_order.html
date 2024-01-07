@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Order - My Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Create Order</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="customer">Customer Name:</label>
+            <input type="text" id="customer" name="customer" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="products">Select Products:</label>
+            <select id="products" name="products" class="form-select" multiple required>
+                <!-- Options for products will go here -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="total_amount">Total Amount:</label>
+            <input type="number" id="total_amount" name="total_amount" class="form-control" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Order</button>
+    </form>
+</div>
+{% endblock %}
